@@ -11,7 +11,46 @@
 
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif; background:var(--bg); color:var(--fg)}
+    body{
+      margin:0; 
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif; 
+      background:var(--bg); 
+      color:var(--fg);
+      position: relative;
+    }
+
+    /* Pride-bakgrund */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        45deg,
+        #e40303 0%,
+        #e40303 16.66%,
+        #ff8c00 16.66%,
+        #ff8c00 33.33%,
+        #ffed00 33.33%,
+        #ffed00 50%,
+        #008018 50%,
+        #008018 66.66%,
+        #004cff 66.66%,
+        #004cff 83.33%,
+        #732982 83.33%,
+        #732982 100%
+      );
+      opacity: 0.08; /* Mycket låg opacitet för diskret effekt */
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Lägg till extra subtil regnbågseffekt i ljust läge */
+    :root.light body::before {
+      opacity: 0.04; /* Ännu lägre i ljust läge */
+    }
 
     /* Header med extra plats för årsvisning */
     header{
